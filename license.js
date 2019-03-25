@@ -42,5 +42,8 @@ function setPlate(license) {
     document.getElementById('refresh_plate').onclick = function() {
         setPlate(swearer.generate());
     };
+    document.getElementById('flip_plate').onclick = function() {
+        document.getElementById('license').classList.toggle('flipped');
+    };
     setPlate(swearer.generate());
 })();
