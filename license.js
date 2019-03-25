@@ -1,6 +1,6 @@
 class LicenseSwearer {
     constructor(wordlist, rules) {
-        this.wordlist = wordlist || [];
+        this.wordlist = this.shuffle(wordlist || []);
         this.rules = rules || {};
         this.swearIndex = 0;
         this.alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -30,13 +30,29 @@ class LicenseSwearer {
         }
         return 'FAILED';
     }
-}
 
-function setPlate(license) {
-    document.getElementById('license_plate').innerText = license;
+    /**
+     * Shuffles array in place.
+     * @param {Array} a items An array containing the items.
+     * https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+     */
+    shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
 }
 
 (function init() {
+    function setPlate(license) {
+        document.getElementById('license_plate').innerText = license;
+    }
+
     const swearer = new LicenseSwearer(naughtyWords, {})
     document.getElementById('refresh_plate').onclick = function() {
         setPlate(swearer.generate());
