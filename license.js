@@ -13,7 +13,6 @@ class LicenseSwearer {
             let index = this.alphabet.indexOf(word[i]);
             let newLetter = this.alphabetSubstitute[index];
             if (newLetter === '_') {
-                console.log(word);
                 return null;
             }
             newWord += newLetter;
