@@ -4,7 +4,7 @@ class LicenseSwearer {
         this.rules = rules || { min: 2, max: 8, };
         this.swearIndex = 0;
         this.alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        this.alphabetSubstitute = 'A___3__HI__1MNO_Q_2TUVWXY501SE_Z__8_';
+        this.alphabetSubstitute = 'A___3__HI__1MNO9Q_2TUVWXY501SE_Z__8P';
     }
 
     convert(word) {
