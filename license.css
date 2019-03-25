@@ -1,0 +1,21 @@
+/*
+Initial CSS from https://codepen.io/alexlitel/pen/zGeqQW
+ */
+
+.license {
+    background: blue;
+    color: yellow;
+    border: 15px double  lightgrey;
+    text-transform: uppercase;
+    box-shadow: black 3px 2px 3px;
+    border-radius: 30px;
+}
+
+.number {
+    font-size: 152px;
+    text-align: center;
+    text-shadow: black 3px 2px 3px;
+    transform:scale(1.2,2.5);
+    margin-top: 80px;
+    -webkit-filter: invert(12%);
+}
