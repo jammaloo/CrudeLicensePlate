@@ -22,3 +22,9 @@ Initial CSS from https://codepen.io/alexlitel/pen/zGeqQW
     margin-top: 80px;
     -webkit-filter: invert(12%);
 }
+
+#license_plate_plain {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+}

@@ -25,14 +25,17 @@ class LicenseSwearer {
     }
 
     generate() {
+        let currentWord = '';
+        let originalWord = '';
         for (let i = 0; i < this.wordlist.length; i++) {
-            const currentWord = this.convert(this.wordlist[this.swearIndex++].toUpperCase());
+            originalWord = this.wordlist[this.swearIndex++ % this.wordlist.length].toUpperCase();
+            currentWord = this.convert(originalWord);
 
             if (currentWord) {
-                return currentWord;
+                break;
             }
         }
-        return 'FAILED';
+        return { plate: currentWord, original: originalWord, };
     }
 
     /**
@@ -54,7 +57,8 @@ class LicenseSwearer {
 
 (function init() {
     function setPlate(license) {
-        document.getElementById('license_plate').innerText = license;
+        document.getElementById('license_plate').innerText = license.plate;
+        document.getElementById('license_plate_plain').innerText = license.original;
     }
 
     const swearer = new LicenseSwearer(naughtyWords);
