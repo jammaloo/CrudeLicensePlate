@@ -1,7 +1,7 @@
 class LicenseSwearer {
     constructor(wordlist, rules) {
         this.wordlist = this.shuffle(wordlist || []);
-        this.rules = rules || {};
+        this.rules = rules || { min: 2, max: 8, };
         this.swearIndex = 0;
         this.alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         this.alphabetSubstitute = 'A___3__HI__1MNO_Q_2TUVWXY501SE_Z__8_';
@@ -9,6 +9,10 @@ class LicenseSwearer {
 
     convert(word) {
         let newWord = '';
+        if ((this.rules.min && word.length < this.rules.min) ||
+            (this.rules.max && word.length > this.rules.max)) {
+            return null;
+        }
         for (let i = 0; i < word.length; i++) {
             let index = this.alphabet.indexOf(word[i]);
             let newLetter = this.alphabetSubstitute[index];
@@ -53,12 +57,13 @@ class LicenseSwearer {
         document.getElementById('license_plate').innerText = license;
     }
 
-    const swearer = new LicenseSwearer(naughtyWords, {})
+    const swearer = new LicenseSwearer(naughtyWords);
+    setPlate(swearer.generate());
+
     document.getElementById('refresh_plate').onclick = function() {
         setPlate(swearer.generate());
     };
     document.getElementById('flip_plate').onclick = function() {
         document.getElementById('license').classList.toggle('flipped');
     };
-    setPlate(swearer.generate());
 })();
