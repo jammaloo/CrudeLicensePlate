@@ -15,7 +15,10 @@ Initial CSS from https://codepen.io/alexlitel/pen/zGeqQW
     font-size: 152px;
     text-align: center;
     text-shadow: black 3px 2px 3px;
-    transform:scale(1.2,2.5);
     margin-top: 80px;
     -webkit-filter: invert(12%);
+}
+
+#refresh_plate {
+    margin-top: 100px;
 }
